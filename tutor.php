@@ -104,6 +104,30 @@ if ( ! function_exists( 'tutor' ) ) {
 	}
 
 	add_action( 'save_post', array( $this, 'save_course_price' ) );
+
+	/**
+	 * Add My Certifications menu item
+	 */
+	public function add_my_certifications_menu() {
+		add_menu_page(
+			__( 'My Certifications', 'tutor' ),
+			__( 'My Certifications', 'tutor' ),
+			'read',
+			'my-certifications',
+			array( $this, 'display_my_certifications' ),
+			'dashicons-awards',
+			6
+		);
+	}
+
+	/**
+	 * Display My Certifications page
+	 */
+	public function display_my_certifications() {
+		include 'views/my-certifications.php';
+	}
+
+	add_action( 'admin_menu', array( $this, 'add_my_certifications_menu' ) );
 }
 
 if ( ! class_exists( 'Tutor' ) ) {
