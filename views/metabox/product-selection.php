@@ -53,6 +53,10 @@ if ( ! $course_id ) {
 				</option>
 			<?php endforeach; ?>
 		</select>
+		<div class="tutor-form-group">
+			<label for="tutor_course_price"><?php esc_html_e( 'Course Price', 'tutor' ); ?></label>
+			<input type="number" name="tutor_course_price" id="tutor_course_price" value="<?php echo esc_attr( $course_price ); ?>" step="any" min="0" class="tutor-form-control" />
+		</div>
 		<div class="tutor-form-feedback">
 			<i class="tutor-icon-circle-info-o tutor-form-feedback-icon" area-hidden="true"></i>
 			<div><?php echo esc_html( $info_text ); ?></div>

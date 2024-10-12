@@ -31,9 +31,30 @@
 						</li>
 					<?php endforeach; ?>
 				</ul>
-			</div>
-		<?php endif; ?>
+		</div>
 		<?php do_action( 'tutor_add_new_instructor_form_fields_before' ); ?>
+		<div class="tutor-option-field-row">
+			<div class="tutor-option-field-label">
+				<label>
+					<?php esc_html_e( 'Post Title', 'tutor' ); ?>
+					<span class="tutor-required-fields">*</span>
+				</label>
+			</div>
+			<div class="tutor-option-field">
+				<input type="text" name="post_title" value="<?php echo esc_attr( tutor_utils()->input_old( 'post_title' ) ); ?>" placeholder="<?php esc_attr_e( 'Post Title', 'tutor' ); ?>">
+			</div>
+		</div>
+		<div class="tutor-option-field-row">
+			<div class="tutor-option-field-label">
+				<label>
+					<?php esc_html_e( 'Post Content', 'tutor' ); ?>
+					<span class="tutor-required-fields">*</span>
+				</label>
+			</div>
+			<div class="tutor-option-field">
+				<textarea name="post_content" placeholder="<?php esc_attr_e( 'Post Content', 'tutor' ); ?>"><?php echo esc_textarea( tutor_utils()->input_old( 'post_content' ) ); ?></textarea>
+			</div>
+		</div>
 
 		<div class="tutor-option-field-row">
 			<div class="tutor-option-field-label">

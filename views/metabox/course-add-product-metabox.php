@@ -10,6 +10,7 @@
  */
 
 $products   = tutor_utils()->get_wc_products_db( get_the_ID() );
+$course_price = get_post_meta( get_the_ID(), '_tutor_course_price', true );
 $product_id = tutor_utils()->get_course_product_id();
 
 $info_text = __( 'Sell your product, process by WooCommerce', 'tutor' );

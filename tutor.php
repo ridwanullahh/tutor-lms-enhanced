@@ -91,6 +91,19 @@ if ( ! function_exists( 'tutor' ) ) {
 		$GLOBALS['tutor_plugin_info'] = (object) $info;
 		return $GLOBALS['tutor_plugin_info'];
 	}
+
+	/**
+	 * Save course price
+	 *
+	 * @param int $post_id
+	 */
+	public function save_course_price( $post_id ) {
+		if ( isset( $_POST['tutor_course_price'] ) ) {
+			update_post_meta( $post_id, '_tutor_course_price', sanitize_text_field( $_POST['tutor_course_price'] ) );
+		}
+	}
+
+	add_action( 'save_post', array( $this, 'save_course_price' ) );
 }
 
 if ( ! class_exists( 'Tutor' ) ) {
