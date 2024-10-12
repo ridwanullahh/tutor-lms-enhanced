@@ -108,6 +108,7 @@ if ( ! function_exists( 'tutor' ) ) {
 
 if ( ! class_exists( 'Tutor' ) ) {
 	include_once 'classes/Tutor.php';
+	include_once 'certificate-generator.php';
 }
 
 /**
