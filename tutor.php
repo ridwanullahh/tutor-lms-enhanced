@@ -22,30 +22,6 @@ add_action(
     }
 );
 
-<<<<<<< HEAD
-
-if ( ! class_exists( 'Tutor' ) ) {
-class Tutor {
-    public function save_course_price( $post_id ) {
-	/**
-	 * Tutor helper function.
-	 *
-	 * @since 1.0.0
-	 *
-	 * @return object
-	 */
-	    /**
-	     * Tutor helper function.
-	     *
-	     * @since 1.0.0
-	     *
-	     * @return object
-	     */
-	    public function tutor() {
-	        if ( isset( $GLOBALS['tutor_plugin_info'] ) ) {
-			return $GLOBALS['tutor_plugin_info'];
-		}
-=======
 if ( ! function_exists( 'tutor' ) ) {
     /**
      * Tutor helper function.
@@ -58,7 +34,6 @@ if ( ! function_exists( 'tutor' ) ) {
         if ( isset( $GLOBALS['tutor_plugin_info'] ) ) {
             return $GLOBALS['tutor_plugin_info'];
         }
->>>>>>> a857512d1ca6a0b40bfbb6badc593cfe7154abcd
 
         $path    = plugin_dir_path( TUTOR_FILE );
         $has_pro = defined( 'TUTOR_PRO_VERSION' );
@@ -97,46 +72,9 @@ if ( ! function_exists( 'tutor' ) ) {
             'meet_post_type'         => apply_filters( 'tutor_google_meeting_post_type', 'tutor-google-meet' ),
         );
 
-<<<<<<< HEAD
-		$GLOBALS['tutor_plugin_info'] = (object) $info;
-		return $GLOBALS['tutor_plugin_info'];
-	}
-
-       /**
-        * Save course price
-        *
-        * @param int $post_id
-        */
-       public function save_course_price( $post_id ) {
-		if ( isset( $_POST['tutor_course_price'] ) ) {
-			update_post_meta( $post_id, '_tutor_course_price', sanitize_text_field( $_POST['tutor_course_price'] ) );
-		}
-	}
-
-	add_action( 'save_post', array( $this, 'save_course_price' ) );
-
-	function add_my_certifications_menu() {
-		add_menu_page(
-			__( 'My Certifications', 'tutor' ),
-			__( 'My Certifications', 'tutor' ),
-			'read',
-			'my-certifications',
-			array( $this, 'display_my_certifications' ),
-			'dashicons-awards',
-			6
-		);
-	}
-
-	function display_my_certifications() {
-		include 'views/my-certifications.php';
-	}
-
-	add_action( 'admin_menu', array( $this, 'add_my_certifications_menu' ) );
-=======
         $GLOBALS['tutor_plugin_info'] = (object) $info;
         return $GLOBALS['tutor_plugin_info'];
     }
->>>>>>> a857512d1ca6a0b40bfbb6badc593cfe7154abcd
 }
 
 class TutorPlugin {
@@ -174,81 +112,6 @@ class TutorPlugin {
     }
 }
 
-<<<<<<< HEAD
-    /**
-     * Tutor helper function.
-     *
-     * @since 1.0.0
-     *
-     * @return object
-     */
-    public function tutor() {
-        if ( isset( $GLOBALS['tutor_plugin_info'] ) ) {
-			return $GLOBALS['tutor_plugin_info'];
-		}
-		
-		// Rest of the code...
-	}
-
-
-if ( ! function_exists( 'tutils' ) ) {
-	/**
-	 * Alis of tutor_utils()
-	 *
-	 * @since 1.3.4
-	 *
-	 * @return \TUTOR\Utils
-	 */
-	function tutils() {
-		return tutor_utils();
-	}
-}
-
-/**
- * Do some task during activation
- *
- * @since 1.5.2
- *
- * @since 2.6.2
- *
- * Uninstall hook registered
- */
-register_activation_hook( TUTOR_FILE, array( '\TUTOR\Tutor', 'tutor_activate' ) );
-register_deactivation_hook( TUTOR_FILE, array( '\TUTOR\Tutor', 'tutor_deactivation' ) );
-register_uninstall_hook( TUTOR_FILE, array( '\TUTOR\Tutor', 'tutor_uninstall' ) );
-
-if ( ! function_exists( 'tutor_lms' ) ) {
-	/**
-	 * Run main instance of the Tutor
-	 *
-	 * @since 1.2.0
-	 *
-	 * @return null|\TUTOR\Tutor
-	 */
-	function tutor_lms() {
-		return \TUTOR\Tutor::instance();
-	}
-}
-
-if ( ! function_exists( 'str_contains' ) ) {
-	/**
-	 * String helper for str contains
-	 *
-	 * @since 1.0.0
-	 *
-	 * @param string $haystack haystack.
-	 * @param string $needle needle.
-	 *
-	 * @return bool
-	 */
-	function str_contains( string $haystack, string $needle ) {
-		return empty( $needle ) || strpos( $haystack, $needle ) !== false;
-	}
-}
-
-$GLOBALS['tutor'] = tutor_lms();
-=======
 $tutor_plugin = new TutorPlugin();
 add_action( 'save_post', array( $tutor_plugin, 'save_course_price' ) );
 add_action( 'admin_menu', array( $tutor_plugin, 'add_my_certifications_menu' ) );
->>>>>>> a857512d1ca6a0b40bfbb6badc593cfe7154abcd
