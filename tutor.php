@@ -39,12 +39,7 @@ add_action(
 
 
 if ( ! function_exists( 'tutor' ) ) {
-/**
- * Save course price
- *
- * @param int $post_id
- */
-function save_course_price( $post_id ) {
+public function save_course_price( $post_id ) {
 	/**
 	 * Tutor helper function.
 	 *
@@ -112,10 +107,7 @@ function save_course_price( $post_id ) {
 
 	add_action( 'save_post', array( $this, 'save_course_price' ) );
 
-	/**
-	 * Add My Certifications menu item
-	 */
-	public function add_my_certifications_menu() {
+	function add_my_certifications_menu() {
 		add_menu_page(
 			__( 'My Certifications', 'tutor' ),
 			__( 'My Certifications', 'tutor' ),
@@ -127,10 +119,7 @@ function save_course_price( $post_id ) {
 		);
 	}
 
-	/**
-	 * Display My Certifications page
-	 */
-	public function display_my_certifications() {
+	function display_my_certifications() {
 		include 'views/my-certifications.php';
 	}
 
