@@ -37,7 +37,14 @@ add_action(
 	}
 );
 
+
 if ( ! function_exists( 'tutor' ) ) {
+/**
+ * Save course price
+ *
+ * @param int $post_id
+ */
+function save_course_price( $post_id ) {
 	/**
 	 * Tutor helper function.
 	 *
