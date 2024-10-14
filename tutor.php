@@ -38,8 +38,9 @@ add_action(
 );
 
 
-if ( ! function_exists( 'tutor' ) ) {
-public function save_course_price( $post_id ) {
+if ( ! class_exists( 'Tutor' ) ) {
+class Tutor {
+    public function save_course_price( $post_id ) {
 	/**
 	 * Tutor helper function.
 	 *
@@ -47,8 +48,15 @@ public function save_course_price( $post_id ) {
 	 *
 	 * @return object
 	 */
-	function tutor() {
-		if ( isset( $GLOBALS['tutor_plugin_info'] ) ) {
+	    /**
+	     * Tutor helper function.
+	     *
+	     * @since 1.0.0
+	     *
+	     * @return object
+	     */
+	    public function tutor() {
+	        if ( isset( $GLOBALS['tutor_plugin_info'] ) ) {
 			return $GLOBALS['tutor_plugin_info'];
 		}
 
@@ -94,12 +102,12 @@ public function save_course_price( $post_id ) {
 		return $GLOBALS['tutor_plugin_info'];
 	}
 
-	/**
-	 * Save course price
-	 *
-	 * @param int $post_id
-	 */
-	public function save_course_price( $post_id ) {
+    /**
+     * Save course price
+     *
+     * @param int $post_id
+     */
+    public function save_course_price( $post_id ) {
 		if ( isset( $_POST['tutor_course_price'] ) ) {
 			update_post_meta( $post_id, '_tutor_course_price', sanitize_text_field( $_POST['tutor_course_price'] ) );
 		}
