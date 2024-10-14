@@ -139,33 +139,20 @@ if ( ! class_exists( 'Tutor' ) ) {
 	include_once 'certificate-generator.php';
 }
 
-/**
- * Get all helper functions/methods
- *
- * @return \TUTOR\Utils
- */
-
-if ( ! class_exists( '\TUTOR\Utils' ) ) {
-	include_once 'classes/Utils.php';
-}
-
-if ( ! function_exists( 'tutor_utils' ) ) {
-	/**
-	 * Access tutor utils functions
-	 *
-	 * @since 1.0.0
-	 *
-	 * @return \TUTOR\Utils
-	 */
-	function tutor_utils() {
-		if ( ! isset( $GLOBALS['tutor_utils_object'] ) ) {
-			// Use runtime cache.
-			$GLOBALS['tutor_utils_object'] = new \TUTOR\Utils();
+    /**
+     * Tutor helper function.
+     *
+     * @since 1.0.0
+     *
+     * @return object
+     */
+    public function tutor() {
+        if ( isset( $GLOBALS['tutor_plugin_info'] ) ) {
+			return $GLOBALS['tutor_plugin_info'];
 		}
-
-		return $GLOBALS['tutor_utils_object'];
+		
+		// Rest of the code...
 	}
-}
 
 
 if ( ! function_exists( 'tutils' ) ) {
